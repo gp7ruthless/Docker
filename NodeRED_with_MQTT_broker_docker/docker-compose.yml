@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  nodered_mqttBroker:
+    image: eclipse-mosquitto:2.0.14
+    container_name: nodered_mqttBroker_container
+    restart: always
+    ports:
+      - '9001:9001'
+    # volumes:
+    #   - ./nodered_mqtt_broker/config:/mosquitto/config
+    #   - ./nodered_mqtt_broker/data:/mosquitto/data
+    #   - ./nodered_mqtt_broker/log:/mosquitto/log
+    networks:
+      - node-red-net
+  node_red:
+    image: nodered/node-red:latest
+    environment: 
+      - TZ=India/Mumbai 
+    ports:
+      - "1880:1880"
+    networks:
+      - node-red-net
+    volumes:
+      - ./nodered/data:/data
+networks:
+  node-red-net:
