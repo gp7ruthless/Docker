@@ -5,7 +5,7 @@ services:
     container_name: nodered_mqttBroker_container
     restart: always
     ports:
-      - '9001:9001'
+      - '1883:1883'
     # volumes:
     #   - ./nodered_mqtt_broker/config:/mosquitto/config
     #   - ./nodered_mqtt_broker/data:/mosquitto/data
