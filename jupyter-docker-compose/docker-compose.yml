@@ -8,6 +8,6 @@ services:
         - ./work/modules/:/home/jovyan/work/modules
         - ./ssl_certs/:/etc/ssl/notebook
       ports:
-        - ${PORT}:8888
+        - 8888:8888
       container_name:   jupyter_notebook
       command: "start-notebook.sh"
